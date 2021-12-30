@@ -728,7 +728,7 @@ EDXAPP_VIDEO_UPLOAD_PIPELINE:
   BUCKET: ''
   ROOT_PATH: ''
 
-EDXAPP_CORS_ORIGIN_WHITELIST: []
+EDXAPP_CORS_ORIGIN_WHITELIST: ['https://localhost:19010']
 EDXAPP_CORS_ORIGIN_ALLOW_ALL: false
 EDXAPP_CROSS_DOMAIN_CSRF_COOKIE_DOMAIN: ""
 EDXAPP_CROSS_DOMAIN_CSRF_COOKIE_NAME: ""
@@ -790,7 +790,7 @@ EDXAPP_SOCIAL_SHARING_SETTINGS:
 #To use AWS S3 as your backend, you need different kwargs:
 # EDXAPP_PROFILE_IMAGE_BACKEND_CONFIG:
 #   class: storages.backends.s3boto.S3BotoStorage
-#   options:
+#   options:CORS_ORIGIN_WHITELIST
 #     location: path/to/images  # Note: The location should not begin with a leading slash.
 #     bucket: mybucket
 #     custom_domain: mybucket.s3.amazonaws.com
