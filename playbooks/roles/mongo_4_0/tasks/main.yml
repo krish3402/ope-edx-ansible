@@ -11,16 +11,16 @@
     - "install"
     - "install:configuration"
 
-#- name: Enable/start disable transparent huge pages service (http://docs.mongodb.org/manual/tutorial/transparent-huge-pages/)
-#  become_method: sudo
-#  service:
-#    name: disable-transparent-hugepages
-#    enabled: yes
-#    state: started
- # tags:
-#    - "hugepages"
-  #  - "manage"
-#    - "manage:start"
+- name: Enable/start disable transparent huge pages service (http://docs.mongodb.org/manual/tutorial/transparent-huge-pages/)
+  become_method: sudo
+  service:
+    name: disable-transparent-hugepages
+    enabled: yes
+    state: started
+  tags:
+    - "hugepages"
+    - "manage"
+    - "manage:start"
 
 - name: install python pymongo for mongo_user ansible module
   pip:
