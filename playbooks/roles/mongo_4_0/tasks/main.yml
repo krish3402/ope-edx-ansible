@@ -1,25 +1,3 @@
----
-- name: Add disable transparent huge pages systemd service (http://docs.mongodb.org/manual/tutorial/transparent-huge-pages/)
-  copy:
-    src:  etc/systemd/system/disable-transparent-hugepages.service
-    dest: "/etc/systemd/system/disable-transparent-hugepages.service"
-    owner: root
-    group: root
-    mode: 0644
-  tags:
-    - "hugepages"
-    - "install"
-    - "install:configuration"
-
-- name: Enable/start disable transparent huge pages service (http://docs.mongodb.org/manual/tutorial/transparent-huge-pages/)
-  service:
-    name: disable-transparent-hugepages
-    enabled: yes
-    state: started
-  tags:
-    - "hugepages"
-    - "manage"
-    - "manage:start"
 
 - name: install python pymongo for mongo_user ansible module
   pip:
