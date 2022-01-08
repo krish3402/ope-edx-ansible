@@ -1,11 +1,10 @@
 [Unit]
-Description="Disable Transparent Hugepage before MongoDB boots"
+Description=Disable Transparent Huge Pages (THP)
+DefaultDependencies=no
+After=sysinit.target local-fs.target
 Before=mongod.service
-
 [Service]
 Type=oneshot
-ExecStart=/bin/bash -c 'echo never > /sys/kernel/mm/transparent_hugepage/enabled'
-ExecStart=/bin/bash -c 'echo never > /sys/kernel/mm/transparent_hugepage/defrag'
-
+ExecStart=/bin/sh -c 'echo never | tee /sys/kernel/mm/transparent_hugepage/enabled > /dev/null'
 [Install]
-RequiredBy=mongod.service
+WantedBy=basic.target
