@@ -12,7 +12,7 @@
     - "install:configuration"
 
 - name: Enable/start disable transparent huge pages service (http://docs.mongodb.org/manual/tutorial/transparent-huge-pages/)
-  become_method: sudo
+#  become_method: sudo
   service:
     name: disable-transparent-hugepages
     enabled: yes
